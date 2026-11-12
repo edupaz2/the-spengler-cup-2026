@@ -1,0 +1,25 @@
+.venv/
+.superpowers/
+node_modules/
+dist/
+__pycache__/
+.pytest_cache/
+.DS_Store
+.tools/
+# Organizer data, documents and screenshots must never be public
+OneDrive_*/
+Screenshot*.png
+2026_SIC_DataHack_*
+2025*_SIC25_*
+20261006_SIC_DataHack_*
+*.mp4
+/raw/
+.claude/
+# Generated from the organizers' data: build locally with scripts/build_data.sh
+app/public/data/
+/spengler_2025_259_ASSETS_UPDATED_MASTER_QA_CANDIDATE/
+/spengler_2025_259_ASSETS_UPDATED_MASTER_QA_CANDIDATE.zip
+/manifest.json
+/davos_spengler_cup_trophy_poster.png
+/spengler_cup_2025_card_deck.png
+/.private/

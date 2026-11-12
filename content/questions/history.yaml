@@ -1,0 +1,37 @@
+# Tournament History: templates read content/history/editions.csv; written entries carry a source.
+- {id: h-winner-2025, template: winner_of_year, year: 2025, difficulty: 1, source: "Spengler Cup Event Report 2025"}
+- {id: h-winner-2024, template: winner_of_year, year: 2024, difficulty: 2, source: "Wikipedia: Spengler Cup"}
+- {id: h-winner-2022, template: winner_of_year, year: 2022, difficulty: 3, source: "Wikipedia: Spengler Cup"}
+- {id: h-winner-1984, template: winner_of_year, year: 1984, difficulty: 3, source: "Wikipedia: Spengler Cup"}
+- {id: h-runner-up-2025, template: runner_up_of_year, year: 2025, difficulty: 1, source: "Spengler Cup Event Report 2025"}
+- {id: h-most-titles, template: most_titles, difficulty: 2, source: "Wikipedia: Spengler Cup"}
+- {id: h-titles-canada, template: titles_of, team: "Team Canada", difficulty: 3, source: "Wikipedia: Spengler Cup"}
+- {id: h-not-held-1939, template: year_not_held, year: 1939, difficulty: 2, source: "Wikipedia: Spengler Cup"}
+- id: h-shared-1932
+  prompt: "Which two teams shared the 1932 Spengler Cup after a 0-0 draw in overtime?"
+  options: ["Berlin SC and HC Davos", "LTC Prague and Oxford University", "Oxford University and Berlin SC", "LTC Prague and HC Davos"]
+  answer: "LTC Prague and Oxford University"
+  why: "In 1932 the final ended 0-0 after overtime and the trophy was shared. The host, HC Davos, finished third."
+  difficulty: 3
+  source: "Wikipedia: Spengler Cup"
+- id: h-first-ncaa
+  prompt: "Which team made history in 2025 as the first NCAA selection team at the Spengler Cup?"
+  options: ["IFK Helsinki", "U.S. Collegiate Selects", "HC Sparta Praha", "Team Canada"]
+  answer: "U.S. Collegiate Selects"
+  why: "The U.S. Collegiate Selects gathered top college players, finished first in their group, beat Sparta in the semi-final and lost the final 6-3 to HC Davos."
+  difficulty: 1
+  source: "Spengler Cup Event Report 2025"
+- id: h-first-edition
+  prompt: "In which year was the first Spengler Cup played?"
+  options: ["1923", "1931", "1946", "1953"]
+  answer: "1923"
+  why: "The tournament began in 1923, which makes it the oldest invitational ice hockey tournament in the world. Oxford University won that first edition."
+  difficulty: 2
+  source: "Wikipedia: Spengler Cup"
+- id: h-shootout-2018
+  prompt: "How was the 2018 Spengler Cup final decided?"
+  options: ["In a shootout, 2-1", "6-3 in regulation", "In double overtime, 1-0", "On a penalty shot in the last minute"]
+  answer: "In a shootout, 2-1"
+  why: "KalPa Kuopio beat Team Canada 2-1 after a shootout in 2018, the only earlier final with a recorded score in our source."
+  difficulty: 3
+  source: "Wikipedia: Spengler Cup"

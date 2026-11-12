@@ -1,0 +1,238 @@
+<title>Spengler Advent Plan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column on a scoreboard-style header; the plan reads top to bottom, tasks collapse into rows. */
+:root {
+  --bg: #f4f7fa;
+  --surface: #ffffff;
+  --fg: #0e2238;
+  --muted: #55687d;
+  --line: #d5dee8;
+  --blue: #0b4a8f;
+  --gold: #f2b705;
+  --gold-ink: #5c4300;
+  --data: #1c7a5a;
+  --risk: #b4432a;
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-body: "Work Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0a1626; --surface: #112238; --fg: #e8eef5; --muted: #98abc0; --line: #243a55;
+    --blue: #6aa8f0; --gold: #f2c53a; --gold-ink: #f2d88a; --data: #4fc79a; --risk: #f08a6f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0a1626; --surface: #112238; --fg: #e8eef5; --muted: #98abc0; --line: #243a55;
+  --blue: #6aa8f0; --gold: #f2c53a; --gold-ink: #f2d88a; --data: #4fc79a; --risk: #f08a6f;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 16px; line-height: 1.55;
+  padding-block: 0 64px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 880px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.05; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2.6rem, 8vw, 4.4rem); letter-spacing: 0.01em; text-transform: uppercase; }
+h2 { font-size: 1.9rem; text-transform: uppercase; letter-spacing: 0.02em; }
+h3 { font-size: 1.3rem; letter-spacing: 0.02em; }
+p { margin: 0; max-width: 68ch; }
+.top { padding-block: 40px 28px; border-bottom: 3px solid var(--gold); display: grid; gap: 14px; }
+.kicker { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.lede { font-size: 1.15rem; max-width: 60ch; }
+section { padding-block: 36px 4px; display: grid; gap: 16px; }
+.muted { color: var(--muted); }
+.grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 16px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.card h3 { color: var(--blue); }
+.tag { font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.scroll { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 0.95rem; background: var(--surface); }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); background: var(--bg); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font: 500 0.85rem var(--font-body); background: var(--surface); color: var(--fg); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); color: var(--bg); }
+.chip:focus-visible, summary:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+details { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; }
+details[hidden] { display: none; }
+summary { cursor: pointer; padding: 12px 16px; display: flex; gap: 12px; align-items: baseline; list-style: none; }
+summary::-webkit-details-marker { display: none; }
+summary .n { font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); min-width: 4.5em; }
+summary .t { font-weight: 600; flex: 1; min-width: 0; }
+summary .s { font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; padding: 2px 8px; border-radius: 3px; background: var(--bg); border: 1px solid var(--line); color: var(--muted); }
+details[open] summary { border-bottom: 1px solid var(--line); }
+.body { padding: 14px 16px 16px; display: grid; gap: 10px; }
+.body h4 { margin: 0; font: 600 0.72rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.body ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+code { font-family: var(--font-mono); font-size: 0.85em; background: var(--bg); border: 1px solid var(--line); border-radius: 3px; padding: 1px 5px; overflow-wrap: anywhere; }
+.note { border-left: 4px solid var(--gold); background: var(--surface); padding: 12px 16px; border-radius: 0 6px 6px 0; }
+.note.risk { border-left-color: var(--risk); }
+.note strong { font-family: var(--font-display); font-size: 1.1rem; letter-spacing: 0.02em; }
+.tier { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.tier div { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--blue); padding: 12px; border-radius: 0 0 6px 6px; display: grid; gap: 4px; }
+.tier div:nth-child(2) { border-top-color: #9aa8b8; }
+.tier div:nth-child(3) { border-top-color: var(--gold); }
+.tier div:nth-child(4) { border-top-color: var(--data); }
+.tier b { font-family: var(--font-display); font-size: 1.15rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.tier span { font-size: 0.92rem; color: var(--muted); }
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); }
+@media (prefers-reduced-motion: no-preference) { details { transition: border-color .15s; } details:hover { border-color: var(--blue); } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="kicker">HC Davos data challenge · plan v2 · preliminary phase due 14 Nov 2026</div>
+    <h1>Spengler Advent</h1>
+    <p class="lede">An installable phone app that gives Spengler Cup fans a reason to come back every morning: a daily challenge, predictions on the next games, and cards that unlock the story behind each performance.</p>
+  </header>
+
+  <section>
+    <h2>The core idea</h2>
+    <p>Visitors check the score and leave. Every feature is judged by one test: does it make someone want to open the app again tomorrow?</p>
+    <div class="grid">
+      <div class="card"><span class="tag">Pillar 1</span><h3>Daily Challenges</h3><p>Five questions a day, one per category: Hockey 101, Hidden Hero, Higher or Lower, Guess the Player and Tournament History. Every answer ends in a "why it mattered" reveal.</p></div>
+      <div class="card"><span class="tag">Pillar 2</span><h3>Predictions</h3><p>Stake Pucks on game winner, best player of the day, best power play. Tomorrow's results settle yesterday's bets. Play money only, never real money.</p></div>
+      <div class="card"><span class="tag">Pillar 3</span><h3>Cards</h3><p>Players, Moments, Goalies, Teams, Rules and concepts, Game of the Day, Achievements. Earned from the daily pack, quizzes and Pucks. Upgrade Normal, Silver, Gold, Diamond to unlock deeper explanation. Complete a set for a bonus.</p></div>
+      <div class="card"><span class="tag">Pillar 4 · version 2</span><h3>Social</h3><p>Connect with friends and exchange cards. Shown as a design slide for now; card ownership is modelled so trading can be added later.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What we submit by 14 Nov</h2>
+    <div class="scroll"><table>
+      <tr><th>Deliverable</th><th>Rule</th><th>Our plan</th></tr>
+      <tr><td>Project summary</td><td>Theme, objectives, impact, innovation</td><td><code>docs/submission/summary.md</code></td></tr>
+      <tr><td>Deck</td><td>Title, up to 7 slides, end, optional appendix. PPT or PDF.</td><td>Problem, Solution, How it works, Demonstrator, Impact and next steps, Team</td></tr>
+      <tr><td>Demo video</td><td><b>3:00 maximum</b> or disqualified. MOV or MP4.</td><td>Script timed to 2:45; check the exported file's length</td></tr>
+      <tr><td>Public repository</td><td>Open without permission, source of the prototype</td><td>Code plus processed sample. Organizer data and PDFs stay out until their terms are confirmed.</td></tr>
+      <tr><td>Prototype (optional)</td><td>Real or representative data, clear for experts and newcomers</td><td>Hosted installable web app with a replay of a past edition</td></tr>
+    </table></div>
+    <div class="note"><strong>Replay mode</strong><p>The 2026 games haven't happened, so predictions can't settle on real results. The demo includes a time machine that replays the 2025 edition day by day (six game days plus a recap day), and the jury can advance a day to see yesterday's predictions pay out.</p></div>
+    <div class="note"><strong>What the data holds</strong><p>Event data with coordinates and xG exists for one game, the 2025 Final (Davos 6:3 U.S. Collegiate Selects), with a full box score for skaters and goalies. The other ten 2025 games have real results from the Event Report. Earlier editions (1923 to 2025) come from public sources and drive Tournament History and Team cards. So winner predictions settle on every game day, while best player and best power play exist only on the Final. Details: <code>docs/data-notes.md</code>.</p></div>
+  </section>
+
+  <section>
+    <h2>Ten days</h2>
+    <div class="scroll"><table>
+      <tr><th>Days</th><th>Goal</th></tr>
+      <tr><td>Wed 4 to Thu 5 Nov</td><td>Data loaders and the past-editions dataset (the data first pass is written). App scaffold and design tokens. Sample JSON committed so the UI can start.</td></tr>
+      <tr><td>Fri 6 to Mon 9</td><td>Data tasks 2 to 7 and game logic tasks 9 to 12 in parallel. UI begins against the sample.</td></tr>
+      <tr><td>Mon 9 to Wed 11</td><td>Screens, integration, replay wiring. <b>Feature freeze at the end of Wed 11.</b></td></tr>
+      <tr><td>Thu 12</td><td>Record the video, draft the slides</td></tr>
+      <tr><td>Fri 13</td><td>Repo cleanup, hosting, final slides, a dry run in a private window</td></tr>
+      <tr><td>Sat 14</td><td>Submit in the morning. Buffer only.</td></tr>
+    </table></div>
+    <div class="note risk"><strong>If we slip, cut in this order</strong><p>Daily tasks, the power-play market, achievements, set bonuses, Game of the Day cards. The core loop and the submission pack are never cut.</p></div>
+  </section>
+
+  <section>
+    <h2>Proposed split</h2>
+    <p class="muted">A starting guess based on the work, not on anyone's skills. Swap freely.</p>
+    <div class="grid">
+      <div class="card"><h3>Eduardo</h3><p>Game logic (tasks 8 to 12), integration, project summary.</p></div>
+      <div class="card"><h3>Fabio</h3><p>UI and PWA (tasks 13 to 16).</p></div>
+      <div class="card"><h3>Lucia</h3><p>Data pipeline and content (tasks 1 to 7), question bank, slides.</p></div>
+    </div>
+    <p class="muted">Everyone reviews the video script and the deck.</p>
+  </section>
+
+  <section>
+    <h2>Tasks</h2>
+    <div class="chips" role="group" aria-label="Filter by workstream" id="chips"></div>
+    <div id="tasks" style="display:grid;gap:10px"></div>
+    <p class="muted">Each task is test first: write the failing test, watch it fail, implement, watch it pass, commit.</p>
+  </section>
+
+  <section>
+    <h2>Review focus</h2>
+    <p class="muted">Inputs nobody will think to test. Each has a named test in the task that owns it.</p>
+    <ul style="margin:0;padding-left:1.1em;display:grid;gap:6px">
+      <li>Replay past the last day stops gracefully, and a game's prediction never settles early. <span class="muted">(Tasks 8, 12)</span></li>
+      <li>A bet with too few Pucks, after lock time, or twice on one market is rejected; settling twice pays once. <span class="muted">(Task 12)</span></li>
+      <li>A results-only day still gets five questions, a winner market and a Game of the Day card, and never shows a player stat from a game not yet replayed. <span class="muted">(Tasks 5, 7, 15)</span></li>
+      <li>Claiming a set bonus twice pays once, and an achievement awards its card once. <span class="muted">(Task 11)</span></li>
+      <li>Reloading mid-challenge or corrupted storage never loses progress or double-awards. <span class="muted">(Tasks 8, 14)</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Risks and open questions</h2>
+    <div class="grid">
+      <div class="card"><h3>Data terms</h3><p>Don't publish the organizers' files until their terms are confirmed. The public repo holds code and processed aggregates, never raw event rows, and credits Wikipedia for the history table.</p></div>
+      <div class="card"><h3>One game of events</h3><p>Only the 2025 Final has events and a box score. Earlier replay days use results, and their player questions use a labelled Final spotlight.</p></div>
+      <div class="card"><h3>Report transcription</h3><p>The 2025 results are typed from report images. Tests check that period scores sum to final scores and group tables match.</p></div>
+      <div class="card"><h3>Content volume</h3><p>At least 16 questions (8 Hockey 101, 8 History) and the rule cards are hand-written. Start on day one.</p></div>
+      <div class="card"><h3>Assets</h3><p>Cards are typographic, so no images are needed. Logo, mascot and historic-player cards wait for assets from the organizers.</p></div>
+      <div class="card"><h3>Submission time</h3><p>The cut-off hour on 14 Nov is unknown. Plan to submit in the morning.</p></div>
+      <div class="card"><h3>Deferred to v2</h3><p>Social and trading, real push notifications, Turning Point question, Kickoff chain, full Hockey IQ rating, share grid.</p></div>
+    </div>
+  </section>
+
+  <footer>Full plan with signatures and tests: <code>docs/superpowers/plans/2026-11-03-spengler-advent.md</code>. Design: <code>docs/superpowers/specs/2026-11-03-spengler-advent-design.md</code>.</footer>
+</div>
+
+<script>
+var STREAMS = { data: "Data and content", logic: "Game logic", ui: "UI", release: "Submission" };
+var TASKS = [
+  { n: 1, s: "data", t: "Data adapter", d: "Load the full-match events and the box-score CSVs into typed records. Verify and extend the data notes already written.",
+    f: ["pipeline/load_events.py", "pipeline/load_stats.py", "docs/data-notes.md"], tests: ["raw kinds map to canonical kinds", "blank xG is None", "shot rows carry the goalie", "stats join on team and jersey"] },
+  { n: "1b", s: "data", t: "Past editions dataset", d: "Type the 2025 results from the Event Report and the year-by-year winners from 1923 to 2025. Loaders, title counts and group tables.",
+    f: ["content/history/editions.csv", "content/edition2025.yaml", "pipeline/editions.py"], tests: ["history covers 1923 to 2025", "shared 1932 title counts for both", "period scores sum to final scores", "group tables match the report"] },
+  { n: 2, s: "data", t: "Win probability and turning point", d: "Win probability from goal difference and time left, and the goal that swung a game most. Feeds Moment and Game of the Day cards.",
+    f: ["pipeline/analytics/winprob.py"], tests: ["tied start is 0.5", "no-goal and one-goal games return no turning point"] },
+  { n: 3, s: "data", t: "Shot quality and player impact", d: "Use the data's own xG with a fallback model where it is blank, an impact score that credits passes, and goalie lines (saves, shots against) checked against the report.",
+    f: ["pipeline/analytics/xg.py"], tests: ["blank xG uses the fallback", "goalie line matches the report", "player with no events scores 0.0"] },
+  { n: 4, s: "data", t: "Question bank and daily picks", d: "Hockey 101 written by hand, Tournament History generated from the year-by-year results plus a few extras, at least eight each, validated at build time, with a deterministic daily pick.",
+    f: ["content/questions/*.yaml", "pipeline/bank.py"], tests: ["missing why is an error", "answer index out of range is an error", "daily pick is deterministic"] },
+  { n: 5, s: "data", t: "Day packs", d: "Five questions a day, one per category: Hockey 101, Hidden Hero, Higher or Lower, Guess the Player, Tournament History. Built to the data each day has: results-only days use team numbers and a labelled Final spotlight. Validated against a schema. Sample JSON by Thu 5 Nov.",
+    f: ["schema/day.schema.json", "pipeline/questions.py", "app/public/data/days/sample.json"], tests: ["pack validates", "higher or lower never has equal values", "clues never contain the player name", "day without games has only bank questions"] },
+  { n: 6, s: "data", t: "Card catalog", d: "About 40 cards across players, goalies, teams, moments, rules, Game of the Day and achievements, each with four tier backs, plus the set definitions.",
+    f: ["schema/card.schema.json", "pipeline/cards.py", "content/rules.yaml"], tests: ["rarity cutoffs at 70, 90, 98", "every card has four backs", "one Game of the Day card per game day", "sets reference existing cards"] },
+  { n: 7, s: "data", t: "Markets and results", d: "Winner markets for every game day with odds from team strength, settled on real 2025 scores. Best player and best power play only on the Final.",
+    f: ["pipeline/markets.py", "app/public/data/markets/sample.json"], tests: ["odds include a margin", "results cover every market", "no games gives no markets"] },
+  { n: 8, s: "logic", t: "Scaffold, profile and clock", d: "Vite and Preact project, shared types, a profile that survives bad storage, and one clock that supports live and replay.",
+    f: ["app/src/state/profile.ts", "app/src/game/clock.ts", "app/src/styles/tokens.css"], tests: ["corrupted storage gives a new profile", "advance past last day stays and is finished", "replay position survives reload"] },
+  { n: 9, s: "logic", t: "Economy", d: "Packs, duplicates, pity timer, upgrades through four tiers, levels. All numbers in one config. The daily pack always holds that day's Game of the Day card.",
+    f: ["app/src/game/economy.ts", "app/src/game/economy.config.ts"], tests: ["same request id does not double-spend", "diamond requires the challenge", "achievement cards never in packs", "short balance never goes negative"] },
+  { n: 10, s: "logic", t: "Scoring", d: "Answer score with a speed bonus, a fewer-clues score for Guess the Player, streaks and a knowledge rating.",
+    f: ["app/src/game/scoring.ts"], tests: ["faster scores more up to a cap", "fewer clues scores more"] },
+  { n: 11, s: "logic", t: "Calendar, tasks, achievements and sets", d: "Doors unlock at 08:00 Zurich, cumulative milestones, one free skip a week, three tasks a day. Achievements award cards; completing a set pays a bonus.",
+    f: ["app/src/game/calendar.ts", "app/src/game/tasks.ts", "app/src/game/achievements.ts", "app/src/game/sets.ts"], tests: ["unlock holds across DST changes", "second skip in a week rejected", "claiming a set twice pays once"] },
+  { n: 12, s: "logic", t: "Predictions logic", d: "Place bets with Pucks before lock time and settle them from results, exactly once.",
+    f: ["app/src/game/predictions.ts"], tests: ["bet after lock rejected", "settling twice pays once", "win pays stake times odds"] },
+  { n: 13, s: "ui", t: "Home, calendar, tasks and PWA", d: "Home with Pucks, level and streak, doors with red-dot nudges, replay bar, installable manifest and a reminder button.",
+    f: ["app/src/screens/Home.tsx", "app/src/components/ReplayBar.tsx", "app/public/manifest.webmanifest"], tests: ["claiming opens the daily pack once", "manifest is installable", "reminder tolerates denied permission"] },
+  { n: 14, s: "ui", t: "Challenge and reveal", d: "The day's five questions, clue-by-clue Guess the Player, and the why-it-mattered reveal after every answer.",
+    f: ["app/src/screens/Challenge.tsx", "app/src/components/Reveal.tsx"], tests: ["reveal always follows an answer", "reload resumes without double award"] },
+  { n: 15, s: "ui", t: "Predictions screen", d: "Markets with odds, a stake picker, and the sheet that shows yesterday's results and payouts.",
+    f: ["app/src/screens/Predict.tsx", "app/src/components/SettleSheet.tsx"], tests: ["shows play-money label", "disabled when locked or short", "no-games day shows a recap"] },
+  { n: 16, s: "ui", t: "Cards screens", d: "Collection with category filter, flip to the back for the current tier, set progress and bonus claims, shop packs, upgrade flow.",
+    f: ["app/src/screens/Cards.tsx", "app/src/components/CardView.tsx"], tests: ["unowned cards are silhouettes", "diamond needs the challenge", "claim set only when complete"] },
+  { n: 17, s: "release", t: "Submission pack", d: "A check that keeps organizer files out of the public repo, a smoke test at phone width, hosting, summary, deck outline and a video script timed to 2:45.",
+    f: ["scripts/check_public.sh", "app/e2e/smoke.spec.ts", "docs/submission/*"], tests: ["public check fails on tracked organizer files", "full loop at 375x812 without console errors"] }
+];
+function esc(s) { return String(s).replace(/[&<>]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]; }); }
+var list = document.getElementById("tasks");
+list.innerHTML = TASKS.map(function (k) {
+  return '<details data-s="' + k.s + '"><summary><span class="n">Task ' + k.n + '</span><span class="t">' + esc(k.t) + '</span><span class="s">' + STREAMS[k.s] + '</span></summary><div class="body"><p>' + esc(k.d) +
+    '</p><h4>Files</h4><ul>' + k.f.map(function (x) { return '<li><code>' + esc(x) + '</code></li>'; }).join("") +
+    '</ul><h4>Tests pin</h4><ul>' + k.tests.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join("") + '</ul></div></details>';
+}).join("");
+var chips = document.getElementById("chips");
+var active = "all";
+function renderChips() {
+  var keys = ["all"].concat(Object.keys(STREAMS));
+  chips.innerHTML = keys.map(function (k) {
+    return '<button class="chip" type="button" data-k="' + k + '" aria-pressed="' + (k === active) + '">' + (k === "all" ? "All tasks" : STREAMS[k]) + '</button>';
+  }).join("");
+}
+chips.addEventListener("click", function (e) {
+  var b = e.target.closest("button"); if (!b) return;
+  active = b.getAttribute("data-k"); renderChips();
+  Array.prototype.forEach.call(list.children, function (d) { d.hidden = active !== "all" && d.getAttribute("data-s") !== active; });
+});
+renderChips();
+</script>

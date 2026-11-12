@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["cards", "sets"],
+  "properties": {
+    "cards": {"type": "array", "items": {"$ref": "#/definitions/card"}},
+    "sets": {"type": "array", "items": {"$ref": "#/definitions/set"}}
+  },
+  "definitions": {
+    "card": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "category", "title", "team", "availableOn", "unlock", "rarity", "front", "back"],
+      "properties": {
+        "id": {"type": "string"},
+        "category": {"enum": ["player", "moment", "goalie", "team", "rule", "gotd", "achievement"]},
+        "title": {"type": "string"}, "team": {"type": ["string", "null"]},
+        "availableOn": {"type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+        "unlock": {"type": ["string", "null"]},
+        "image": {"type": ["string", "null"]},
+        "statsHidden": {"type": "boolean"},
+        "rarity": {"enum": ["common", "rare", "epic", "legendary"]},
+        "front": {"type": "array", "items": {"type": "string"}},
+        "back": {
+          "type": "object", "additionalProperties": false, "required": ["normal", "silver", "gold", "diamond"],
+          "properties": {
+            "normal": {"type": "string"}, "silver": {"type": "string"},
+            "gold": {"type": "object", "required": ["text", "visual", "data"],
+                     "properties": {"text": {"type": "string"}, "visual": {"enum": ["timeline", "shotmap", "table"]}, "data": {"type": "object"}}},
+            "diamond": {"type": "object", "required": ["question", "options", "answerIndex"],
+                        "properties": {"question": {"type": "string"},
+                                       "options": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "string"}},
+                                       "answerIndex": {"type": "integer", "minimum": 0, "maximum": 3}}}
+          }
+        }
+      }
+    },
+    "set": {
+      "type": "object", "additionalProperties": false, "required": ["id", "label", "cardIds", "reward"],
+      "properties": {
+        "id": {"type": "string"}, "label": {"type": "string"},
+        "cardIds": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "reward": {"type": "object", "required": ["pucks"], "properties": {"pucks": {"type": "integer"}, "packId": {"type": "string"}}}
+      }
+    }
+  }
+}

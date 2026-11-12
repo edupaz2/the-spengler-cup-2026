@@ -1,0 +1,23 @@
+# Public facts for the hosted demo. No statistics from the confidential dataset.
+players:   # the final's featured players; key players come from edition2025.yaml
+  - {name: "Aiden Fink", number: 18, team: "U.S. Collegiate Selects", rarity: legendary}
+  - {name: "Valentin Nussbaumer", number: 66, team: "HC Davos", rarity: epic}
+  - {name: "Tino Kessler", number: 72, team: "HC Davos", rarity: epic}
+  - {name: "Ryan Walsh", number: 21, team: "U.S. Collegiate Selects", rarity: epic}
+  - {name: "Chris Egli", number: 96, team: "HC Davos", rarity: rare}
+  - {name: "Cole Knuble", number: 22, team: "U.S. Collegiate Selects", rarity: rare}
+  - {name: "Matej Stransky", number: 44, team: "HC Davos", rarity: rare}
+  - {name: "Quinn Finley", number: 19, team: "U.S. Collegiate Selects", rarity: rare}
+  - {name: "Adam Tambellini", number: 19, team: "HC Davos", rarity: rare}
+  - {name: "Rasmus Asplund", number: 74, team: "HC Davos", rarity: rare}
+  - {name: "Gavin McCartthy", number: 2, team: "U.S. Collegiate Selects", rarity: common}
+  - {name: "Sven Jung", number: 90, team: "HC Davos", rarity: common}
+  - {name: "Matt Dimarsico", number: 14, team: "U.S. Collegiate Selects", rarity: common}
+goalies:
+  - {name: "Adam Gajan", team: "U.S. Collegiate Selects"}
+  - {name: "Sandro Aeschlimann", team: "HC Davos"}
+moments:
+  - {id: moment-turning-point, title: "The turning point", rarity: epic, team: "HC Davos", front: ["2025 Final", "Period 3", "15:21"]}
+  - {id: moment-multi-goal, title: "Adam Tambellini scores 2", rarity: rare, team: "HC Davos", front: ["2025 Final", "2 goals"]}
+  - {id: moment-first-goal, title: "First blood", rarity: rare, team: "HC Davos", front: ["2025 Final", "11:15"]}
+  - {id: moment-last-goal, title: "The last word", rarity: rare, team: "HC Davos", front: ["2025 Final", "17:49"]}

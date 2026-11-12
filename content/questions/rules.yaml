@@ -1,0 +1,71 @@
+# Hockey 101: scenarios with a ruling. Rule explanations only; no figures from the confidential dataset.
+- id: r-icing
+  prompt: "A player shoots the puck from behind centre ice and it slides over the opponent's goal line untouched. What is the call?"
+  options: ["Offside", "Icing", "High-sticking", "Too many men"]
+  answer: "Icing"
+  why: "Shooting the puck from your own half over the far goal line is icing. Play stops and the faceoff is back in the offending team's end."
+  difficulty: 1
+  source: "IIHF rules"
+- id: r-offside
+  prompt: "A forward skates over the attacking blue line before the puck does. What is the call?"
+  options: ["Icing", "Offside", "Delay of game", "Slashing"]
+  answer: "Offside"
+  why: "Attackers must not enter the attacking zone ahead of the puck. The whistle stops play and the faceoff is outside the zone."
+  difficulty: 1
+  source: "IIHF rules"
+- id: r-minor-length
+  prompt: "How long is a standard minor penalty?"
+  options: ["1 minute", "5 minutes", "2 minutes", "10 minutes"]
+  answer: "2 minutes"
+  why: "A minor penalty is 2 minutes, and it ends early if the team with the extra player scores."
+  difficulty: 1
+  source: "IIHF rules"
+- id: r-skaters
+  prompt: "At even strength, how many skaters does each team have on the ice, not counting the goalie?"
+  options: ["4", "5", "6", "7"]
+  answer: "5"
+  why: "Five skaters and a goalie a side. A penalty takes one skater off for 2 minutes, which is a 5v4 power play."
+  difficulty: 1
+  source: "IIHF rules"
+- id: r-high-stick
+  prompt: "A player's stick hits an opponent above the shoulders. What penalty is called?"
+  options: ["Slashing", "Cross-checking", "High-sticking", "Hooking"]
+  answer: "High-sticking"
+  why: "Carrying the stick above the shoulders and hitting someone is high-sticking."
+  difficulty: 2
+  source: "IIHF rules"
+- id: r-periods
+  prompt: "How is a Spengler Cup game divided?"
+  options: ["2 halves of 30 minutes", "4 quarters of 15 minutes", "3 periods of 20 minutes", "3 periods of 15 minutes"]
+  answer: "3 periods of 20 minutes"
+  why: "Three periods of 20 minutes of playing time. The 2025 Final was level at 3-3 after two periods, and Davos scored all three goals of period 3."
+  difficulty: 1
+  source: "IIHF rules; 2025 Final"
+- id: r-assists
+  prompt: "How many assists can be credited on a single goal?"
+  options: ["1", "2", "3", "As many as touched the puck"]
+  answer: "2"
+  why: "At most two players get an assist: the last two teammates to touch the puck before the scorer."
+  difficulty: 2
+  source: "IIHF rules"
+- id: r-blueline
+  prompt: "What do the two blue lines mark?"
+  options: ["The goal crease", "The faceoff circles", "The edges of the neutral zone and the attacking zones", "Where icing is measured"]
+  answer: "The edges of the neutral zone and the attacking zones"
+  why: "The blue lines split the rink into three zones. Entering the attacking zone is where offside is judged."
+  difficulty: 2
+  source: "IIHF rules"
+- id: r-xg
+  prompt: "In hockey analytics, what does xG (expected goals) tell you about a shot?"
+  options: ["How hard it was shot", "How likely it was to score", "How many players were screening", "Who passed it"]
+  answer: "How likely it was to score"
+  why: "xG gives every shot a chance of scoring from its position and context. Add a team's xG up and you see who created the better chances, whatever the score said."
+  difficulty: 2
+  source: "Wisehockey data dictionary"
+- id: r-faceoff
+  prompt: "After a goal, how does play restart?"
+  options: ["A faceoff at centre ice", "A penalty shot", "A faceoff in the scoring team's zone", "The goalie throws the puck out"]
+  answer: "A faceoff at centre ice"
+  why: "Every period and every goal restarts with a centre-ice faceoff."
+  difficulty: 1
+  source: "IIHF rules"

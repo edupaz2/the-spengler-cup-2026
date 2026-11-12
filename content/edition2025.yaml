@@ -1,0 +1,39 @@
+# Typed from the Spengler Cup Event Report 2025 (pages 6 to 14). Games 1 to 6 dates are inferred
+# (two games a day, 26 to 28 Dec); see docs/data-notes.md.
+edition: 2025
+teams:
+  - {name: "HC Fribourg-Gottéron", group: A, fact: "Semi-finalist in the 2024/25 Swiss league, 4th Spengler Cup appearance, defending champion."}
+  - {name: "HC Sparta Praha", group: A, fact: "8 national titles, 2 Spengler Cup titles, 11th appearance, last in 2022."}
+  - {name: "IFK Helsinki", group: A, fact: "7 national titles, 5th Spengler Cup appearance, last in 2022."}
+  - {name: "Team Canada", group: B, fact: "16 Spengler Cup titles, 40th appearance."}
+  - {name: "U.S. Collegiate Selects", group: B, fact: "The first NCAA selection team at the Spengler Cup, the best college players from several programmes."}
+  - {name: "HC Davos", group: B, fact: "31 Swiss titles and 16 Spengler Cup titles before this edition, the host club."}
+games:
+  - {id: 1, date: "2025-12-26", start: "15:10", stage: group, group: A, home: "HC Fribourg-Gottéron", away: "HC Sparta Praha", periods: [[1, 0], [1, 0], [3, 2]]}
+  - {id: 2, date: "2025-12-26", start: "20:15", stage: group, group: B, home: "Team Canada", away: "U.S. Collegiate Selects", periods: [[0, 0], [3, 1], [0, 1]]}
+  - {id: 3, date: "2025-12-27", start: "15:10", stage: group, group: A, home: "IFK Helsinki", away: "HC Sparta Praha", periods: [[0, 1], [1, 2], [0, 1]]}
+  - {id: 4, date: "2025-12-27", start: "20:15", stage: group, group: B, home: "HC Davos", away: "U.S. Collegiate Selects", periods: [[0, 1], [2, 2], [1, 2]]}
+  - {id: 5, date: "2025-12-28", start: "15:10", stage: group, group: A, home: "HC Fribourg-Gottéron", away: "IFK Helsinki", periods: [[1, 2], [2, 0], [1, 1]]}
+  - {id: 6, date: "2025-12-28", start: "20:15", stage: group, group: B, home: "Team Canada", away: "HC Davos", periods: [[0, 1], [1, 0], [0, 3]]}
+  - {id: 7, date: "2025-12-29", start: "15:10", stage: qualification, home: "HC Sparta Praha", away: "Team Canada", periods: [[0, 0], [0, 0], [5, 1]]}
+  - {id: 8, date: "2025-12-29", start: "20:15", stage: qualification, home: "HC Davos", away: "IFK Helsinki", periods: [[1, 0], [1, 0], [1, 0]]}
+  - {id: 9, date: "2025-12-30", start: "15:10", stage: semi, home: "U.S. Collegiate Selects", away: "HC Sparta Praha", periods: [[2, 1], [2, 1], [1, 1]]}
+  - {id: 10, date: "2025-12-30", start: "20:15", stage: semi, home: "HC Fribourg-Gottéron", away: "HC Davos", periods: [[0, 0], [1, 2], [0, 1]]}
+  - {id: 11, date: "2025-12-31", start: "12:10", stage: final, home: "U.S. Collegiate Selects", away: "HC Davos", periods: [[1, 2], [2, 1], [0, 3]]}
+key_players:
+  - {name: "Attilio Biasca", number: 17, team: "HC Fribourg-Gottéron", game: 1}
+  - {name: "Filip Chlapík", number: 14, team: "HC Sparta Praha", game: 1}
+  - {name: "Derek Grant", number: 27, team: "Team Canada", game: 2}
+  - {name: "Gavin McCartthy", number: 2, team: "U.S. Collegiate Selects", game: 2}
+  - {name: "Eric Schneller", number: 65, team: "IFK Helsinki", game: 3}
+  - {name: "Aaron Irving", number: 24, team: "HC Sparta Praha", game: 3}
+  - {name: "Sven Jung", number: 90, team: "HC Davos", game: 4}
+  - {name: "Matt Dimarsico", number: 14, team: "U.S. Collegiate Selects", game: 4}
+  - {name: "Marcus Sörensen", number: 9, team: "HC Fribourg-Gottéron", game: 5}
+  - {name: "Niko Hovinen", number: 92, team: "IFK Helsinki", game: 5}
+final_box:
+  shots_on_goal: {home: 22, away: 32}
+  power_play: {home: [0, 1], away: [2, 4]}
+  goalies:
+    - {name: "Adam Gajan", team: "U.S. Collegiate Selects", saves: 26, shots_against: 31, goals_against: 5}
+    - {name: "Sandro Aeschlimann", team: "HC Davos", saves: 19, shots_against: 22, goals_against: 3}

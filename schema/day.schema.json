@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DayPack",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["date", "games", "depth", "questions"],
+  "properties": {
+    "date": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+    "games": {"type": "array", "items": {"type": "string"}},
+    "depth": {"enum": ["results", "events"]},
+    "questions": {"type": "array", "minItems": 2, "maxItems": 5, "items": {"oneOf": [
+      {"$ref": "#/definitions/bank"}, {"$ref": "#/definitions/hidden_hero"},
+      {"$ref": "#/definitions/higher_lower"}, {"$ref": "#/definitions/guess_player"}
+    ]}}
+  },
+  "definitions": {
+    "options4": {"type": "array", "minItems": 4, "maxItems": 4, "items": {"type": "string"}},
+    "bank": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "kind", "category", "prompt", "options", "answerIndex", "why", "difficulty", "source"],
+      "properties": {
+        "id": {"type": "string"}, "kind": {"const": "bank"}, "category": {"enum": ["rules", "history"]},
+        "prompt": {"type": "string"}, "options": {"$ref": "#/definitions/options4"},
+        "answerIndex": {"type": "integer", "minimum": 0, "maximum": 3}, "why": {"type": "string"},
+        "difficulty": {"enum": [1, 2, 3]}, "source": {"type": "string"}, "template": {"type": ["string", "null"]}
+      }
+    },
+    "hidden_hero": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "kind", "difficulty", "players", "answerIndex", "why", "reveal"],
+      "properties": {
+        "id": {"type": "string"}, "kind": {"const": "hidden_hero"}, "classic": {"type": "boolean"},
+        "difficulty": {"enum": [1, 2, 3]},
+        "players": {"type": "array", "minItems": 3, "maxItems": 3, "items": {
+          "type": "object", "required": ["alias", "box"],
+          "properties": {"alias": {"type": "string"}, "box": {"type": "object", "required": ["goals", "assists", "shots", "toi_min"]}}}},
+        "answerIndex": {"type": "integer", "minimum": 0, "maximum": 2}, "why": {"type": "string"},
+        "reveal": {"type": "array", "minItems": 3, "maxItems": 3, "items": {
+          "type": "object", "required": ["alias", "name", "impact"]}}
+      }
+    },
+    "higher_lower": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "kind", "difficulty", "metric", "prompt", "a", "b", "answer", "why"],
+      "properties": {
+        "id": {"type": "string"}, "kind": {"const": "higher_lower"}, "classic": {"type": "boolean"},
+        "difficulty": {"enum": [1, 2, 3]},
+        "metric": {"enum": ["shots", "saves", "goals", "penalty_minutes", "team_goals", "standings_points", "titles"]},
+        "prompt": {"type": "string"},
+        "a": {"type": "object", "required": ["label", "value"]}, "b": {"type": "object", "required": ["label", "value"]},
+        "answer": {"enum": ["a", "b"]}, "why": {"type": "string"}
+      }
+    },
+    "guess_player": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "kind", "difficulty", "clues", "options", "answerIndex", "why"],
+      "properties": {
+        "id": {"type": "string"}, "kind": {"const": "guess_player"}, "classic": {"type": "boolean"},
+        "difficulty": {"enum": [1, 2, 3]},
+        "clues": {"type": "array", "minItems": 5, "maxItems": 5, "items": {"type": "string"}},
+        "options": {"$ref": "#/definitions/options4"},
+        "answerIndex": {"type": "integer", "minimum": 0, "maximum": 3}, "why": {"type": "string"}
+      }
+    }
+  }
+}

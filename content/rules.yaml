@@ -1,0 +1,49 @@
+# Rule and concept cards: rule explanations only. Gold-tier figures from the confidential dataset live in .private/rule_gold.yaml (not tracked).
+- id: icing
+  title: Icing
+  normal: "Shooting the puck from your own half over the far goal line, untouched, stops play."
+  silver: "The faceoff comes back to the offending team's end, so icing costs a team field position and rest."
+  gold_text: "Where the 2025 Final stopped for a whistle."
+  diamond: {question: "What happens after icing is called?", options: ["The faceoff is in the offending team's end", "The offending team gets a penalty shot", "Play continues", "The faceoff is at centre ice"], answer: "The faceoff is in the offending team's end"}
+- id: offside
+  title: Offside
+  normal: "An attacker may not enter the attacking zone ahead of the puck."
+  silver: "The blue line decides it: the puck must cross first. Play stops and restarts with a faceoff outside the zone."
+  gold_text: "Zone entries in the 2025 Final."
+  diamond: {question: "What must cross the blue line first to stay onside?", options: ["The goalie", "The puck", "The referee", "The nearest defender"], answer: "The puck"}
+- id: power-play
+  title: Power play
+  normal: "After a minor penalty the other team plays with an extra skater for two minutes."
+  silver: "The penalty ends early if the team with the extra player scores. Special teams often decide close games."
+  gold_text: "Power plays in the 2025 Final."
+  diamond: {question: "How long does a team normally play with the extra skater after a minor penalty?", options: ["1 minute", "2 minutes", "5 minutes", "10 minutes"], answer: "2 minutes"}
+- id: high-sticking
+  title: High-sticking
+  normal: "Hitting an opponent with the stick above the shoulders is a penalty."
+  silver: "It is one of the most common calls to watch for, because sticks rise in the rush for the puck."
+  gold_text: "Penalties in the 2025 Final."
+  diamond: {question: "Hitting an opponent with the stick above the shoulders is called what?", options: ["Slashing", "Hooking", "Cross-checking", "High-sticking"], answer: "High-sticking"}
+- id: faceoff
+  title: Faceoff
+  normal: "A referee drops the puck between two players to start or restart play."
+  silver: "Every period and every goal restarts at centre ice. The faceoff winner often gets first possession, which is why teams count faceoff percentage."
+  gold_text: "Faceoffs in the 2025 Final."
+  diamond: {question: "Where does play restart after a goal?", options: ["Centre ice", "The nearest corner", "The goal crease", "The blue line"], answer: "Centre ice"}
+- id: assist
+  title: Assist
+  normal: "The last one or two teammates to touch the puck before a goal each get an assist."
+  silver: "A goal has at most two assists. Points are goals plus assists."
+  gold_text: "Assists in the 2025 Final."
+  diamond: {question: "What is the most assists on one goal?", options: ["1", "2", "3", "4"], answer: "2"}
+- id: expected-goals
+  title: Expected goals (xG)
+  normal: "xG is the chance that a shot becomes a goal, from where and how it was taken."
+  silver: "Add up a team's shot xG and you see who created better chances. A team with more xG than goals was unlucky or faced a great goalie."
+  gold_text: "Shots in the 2025 Final."
+  diamond: {question: "What does a high xG on a shot mean?", options: ["It was fast", "It was a good scoring chance", "It was blocked", "It was a power-play shot"], answer: "It was a good scoring chance"}
+- id: blue-line
+  title: The blue lines
+  normal: "Two blue lines split the rink into three zones."
+  silver: "Entering the attacking zone is where offside is judged, so how a team carries or dumps the puck over the line shapes its attack."
+  gold_text: "Zone entries in the 2025 Final."
+  diamond: {question: "How many zones does the rink have?", options: ["2", "3", "4", "5"], answer: "3"}

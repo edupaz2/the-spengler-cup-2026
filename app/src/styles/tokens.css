@@ -1,0 +1,13 @@
+:root {
+  color-scheme: dark;
+  --blue-900: #07285f; --blue-700: #0b3d91; --blue-500: #2f6fdb; --blue-100: #12264a;
+  --gold-600: #b8860b; --gold-500: #d4a017; --gold-100: #2b2410;
+  --red-500: #c8102e; --green-500: #1e8e4e;
+  --bg: #07111f; --surface: #101d33; --text: #eaf0fb; --muted: #94a3bd; --border: #22334f;
+  --tier-normal: #8a94a6; --tier-silver: #aab4c4; --tier-gold: var(--gold-500); --tier-diamond: #4fc3f7;
+  --cat-player: #2f6fdb; --cat-goalie: #12a4a0; --cat-team: #4b4bb8; --cat-moment: #c8102e; --cat-rule: #5b6a85; --cat-gotd: #1e8e4e; --cat-achievement: #8a4fd6;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fs-xs: 0.75rem; --fs-sm: 0.875rem; --fs-md: 1rem; --fs-lg: 1.25rem; --fs-xl: 1.75rem; --fs-xxl: 2.5rem;
+  --space-1: 4px; --space-2: 8px; --space-3: 16px; --space-4: 24px; --radius: 14px;
+}
+body { margin: 0; min-height: 100vh; background: var(--bg) linear-gradient(180deg, #07285f, #07111f) fixed; color: var(--text); font-family: var(--font); font-size: var(--fs-md); }
